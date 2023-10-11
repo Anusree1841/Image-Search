@@ -325,7 +325,7 @@ def jobs():
     # Fetch all job listings as a list of dictionaries
     job_listings = []
     for row in cursor.fetchall():
-        job_id, company_name, title, salary, location, duration, description, responsibilities, qualification ,file_path= row
+        job_id, company_name, title, salary, location, duration, description, responsibilities, qualification = row
         job = {
             'ID': job_id,
             'company': company_name,
@@ -335,8 +335,7 @@ def jobs():
             'duration': duration,
             'description': description,
             'responsibilities': responsibilities,
-            'qualification': qualification,
-            'file_path': file_path
+            'qualification': qualification
         }
         job_listings.append(job)
     conn.commit()
@@ -377,7 +376,7 @@ def allowed_file(filename):
 
 #             conn = sqlite3.connect("./database.db")
 #             cursor = conn.cursor()
-#             # cursor.execute('UPDATE Jobs SET File_path = ? WHERE ID = ?', (file_path, job_id))
+#             cursor.execute('UPDATE Jobs SET File_path = ? WHERE ID = ?', (file_path, job_id))
 #             conn.commit()
 #             conn.close()
 
@@ -406,6 +405,47 @@ def payment():
 @app.route("/interviewhelper")
 def interviewhelper():
     return render_template("interviewhelper.html")
+
+@app.route("/business_analyst")
+def business_analyst():
+    return render_template("business_analyst.html")
+
+@app.route("/data_scientist")
+def data_scientist():
+    return render_template("data_scientist.html")
+
+@app.route("/softwareEngineer")
+def softwareEngineer():
+    return render_template("softwareEngineer.html")
+
+@app.route("/project_manager")
+def project_manager():
+    return render_template("project_manager.html")
+
+@app.route("/data_engineer")
+def data_engineer():
+    return render_template("data_engineer.html")
+
+
+@app.route("/uiux")
+def uiux():
+    return render_template("uiux.html")
+
+@app.route("/data_analyst")
+def data_analyst():
+    return render_template("data_analyst.html")
+
+@app.route("/DevOps")
+def DevOps():
+    return render_template("DevOps.html")
+
+@app.route("/DMM")
+def DMM():
+    return render_template("DMM.html")
+
+@app.route("/AIML")
+def AIML():
+    return render_template("AIML.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
